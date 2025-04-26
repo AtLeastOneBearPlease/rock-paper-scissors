@@ -55,7 +55,7 @@ function playRound(humanChoice, computerChoice){
                 break;
             case "ROCK":
                 console.log(computerWin);
-            
+                break;
         }
     }
 
