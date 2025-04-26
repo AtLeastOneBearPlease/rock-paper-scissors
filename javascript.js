@@ -15,6 +15,14 @@ function getComputerChoice(){
     }
 }
 
-for(let i=10; i > 0; i--){
-    console.log(getComputerChoice());
+function getHumanChoice(){
+    return prompt("Please enter rock, paper, or scissors");
 }
+
+function playRound(humanChoice, computerChoice){
+    humanChoice = humanChoice.toUpperCase();
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
