@@ -21,6 +21,8 @@ function getHumanChoice(){
 
 function playRound(humanChoice, computerChoice){
     humanChoice = humanChoice.toUpperCase();
+    
+    console.log(`The human chooses: ${humanChoice} and the computer chooses: ${computerChoice}`);
 
     let humanWin = "The human wins!";
     let computerWin = "The computer wins!";
@@ -64,8 +66,7 @@ function playRound(humanChoice, computerChoice){
 let humanScore = 0;
 let computerScore = 0;
 
-/*
-ROCK + PAPER
-PAPER + SCISSORS
-SCISSORS + ROCK
-*/
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
