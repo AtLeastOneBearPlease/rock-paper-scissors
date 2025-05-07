@@ -69,27 +69,38 @@ function playRound(humanChoice, computerChoice){
 
 let humanScore = 0;
 let computerScore = 0;
+let gameWon = false;
 
 function playGame(event)
 {
-    const humanSelection = event.target.innerText;
-    const computerSelection = getComputerChoice();
+    if(!gameWon){
+        const humanSelection = event.target.innerText;
+        const computerSelection = getComputerChoice();
 
-    let winner = playRound(humanSelection, computerSelection);
+        let winner = playRound(humanSelection, computerSelection);
 
-    if(winner === undefined){
-        console.log("Tie");
-    } 
-    else if(winner === true){
-        console.log("The human wins the match!");
-        humanScore++;
-    } 
-    else if(winner === false){
-        console.log("The computer wins the match");
-        computerScore++;
+        if(winner === undefined){
+            console.log("Tie");
+        } 
+        else if(winner === true){
+            console.log("The human wins the match!");
+            humanScore++;
+        } 
+        else if(winner === false){
+            console.log("The computer wins the match");
+            computerScore++;
+        }
+
+        setScores();
+
+        if(humanScore === 5){
+            gameWon = true;
+            //display human win
+        } else if(computerScore === 5){
+            gameWon = true;
+            //display computer win
+        }
     }
-
-    setScores();
 }
 
 function setScores(){
