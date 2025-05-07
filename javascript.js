@@ -15,8 +15,12 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(){
-    return prompt("Please enter rock, paper, or scissors");
+function humanWin(){
+
+}
+
+function computerWin(){
+    
 }
 
 function playRound(humanChoice, computerChoice){
@@ -69,7 +73,7 @@ function playRound(humanChoice, computerChoice){
 }
 
 
-function playGame()
+function playGame(event)
 {
     let humanScore = 0;
     let computerScore = 0;
@@ -92,4 +96,11 @@ function playGame()
     }
 }
 
-playGame();
+ let button = document.querySelector('button');
+ button.addEventListener(playGame);
+
+// let buttons = document.querySelectorAll('button');
+
+// for(let i = 0; i < buttons.length; i++){
+//     buttons[i].addEventListener(playGame);
+// }
