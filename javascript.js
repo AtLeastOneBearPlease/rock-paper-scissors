@@ -67,13 +67,11 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
+let humanScore = 0;
+let computerScore = 0;
 
 function playGame(event)
 {
-    let humanScore = 0;
-    let computerScore = 0;
-
-
     const humanSelection = event.target.innerText;
     const computerSelection = getComputerChoice();
 
@@ -81,11 +79,14 @@ function playGame(event)
 
     if(winner === undefined){
         console.log("Tie");
-    } else if(winner === true){
+    } 
+    else if(winner === true){
         console.log("The human wins the match!");
-    }
+        humanScore++;
+    } 
     else if(winner === false){
         console.log("The computer wins the match");
+        computerScore++;
     }
 
     console.log(
