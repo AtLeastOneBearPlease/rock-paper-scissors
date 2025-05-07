@@ -71,7 +71,25 @@ function playRound(humanChoice, computerChoice){
 
 function playGame()
 {
-    
+    let humanScore = 0;
+    let computerScore = 0;
+
+
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection) ? humanScore++ : computerScore++;
+
+    console.log(
+        `Human score: ${humanScore}\nComputer score: ${computerScore}`
+    );
+
+    if(humanScore > computerScore) {
+        console.log("The human wins the match!");
+    }
+    else {
+        console.log("The computer wins the match");
+    }
 }
 
 playGame();
