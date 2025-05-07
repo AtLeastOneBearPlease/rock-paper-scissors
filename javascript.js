@@ -16,27 +16,24 @@ function getComputerChoice(){
 }
 
 function humanWin(){
-
+    console.log("Human win");
 }
 
 function computerWin(){
-
+    console.log("Computer win");
 }
 
 function tie(){
-    
+    console.log("Tie");
 }
 
 function playRound(humanChoice, computerChoice){
     humanChoice = humanChoice.toUpperCase();
     
     console.log(`The human chooses: ${humanChoice} and the computer chooses: ${computerChoice}`);
-
-    let humanWin = "The human wins the round!";
-    let computerWin = "The computer wins the round!";
     
     if(humanChoice === computerChoice) {
-        console.log("This round was a tie!");
+        tie();
     }
     else if(humanChoice === "ROCK") {
         switch(computerChoice) {
@@ -83,7 +80,7 @@ function playGame(event)
     let computerScore = 0;
 
 
-    const humanSelection = getHumanChoice();
+    const humanSelection = event.target.innerText;
     const computerSelection = getComputerChoice();
 
     playRound(humanSelection, computerSelection) ? humanScore++ : computerScore++;
@@ -101,4 +98,4 @@ function playGame(event)
 }
 
  let button = document.querySelector('button');
- button.addEventListener(playGame);
+ button.addEventListener('click', playGame);
