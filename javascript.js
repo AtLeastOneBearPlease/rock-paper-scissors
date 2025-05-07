@@ -33,28 +33,24 @@ function playRound(humanChoice, computerChoice){
     console.log(`The human chooses: ${humanChoice} and the computer chooses: ${computerChoice}`);
     
     if(humanChoice === computerChoice) {
-        tie();
+        return undefined;
     }
     else if(humanChoice === "ROCK") {
         switch(computerChoice) {
             case "SCISSORS":
-                humanWin();
                 return true;
                 break;
             case "PAPER":
-                computerWin();
                 return false;
                 break;
         }
     }
     else if(humanChoice === "PAPER") {
         switch(computerChoice) {
-            case "ROCK":
-                humanWin();
+            case "ROCK":       
                 return true;
                 break;
-            case "SCISSORS":
-                computerWin();
+            case "SCISSORS": 
                 return false;
                 break;
         }
@@ -62,11 +58,9 @@ function playRound(humanChoice, computerChoice){
     else if(humanChoice === "SCISSORS") {
         switch(computerChoice) {
             case "PAPER":
-                humanWin();
                 return true;
                 break;
             case "ROCK":
-                computerWin();
                 return false;
                 break;
         }
@@ -83,20 +77,24 @@ function playGame(event)
     const humanSelection = event.target.innerText;
     const computerSelection = getComputerChoice();
 
-    playRound(humanSelection, computerSelection) ? humanScore++ : computerScore++;
+    let winner = playRound(humanSelection, computerSelection);
+
+    if(winner === undefined){
+        console.log("Tie");
+    } else if(winner === true){
+        console.log("The human wins the match!");
+    }
+    else if(winner === false){
+        console.log("The computer wins the match");
+    }
 
     console.log(
         `Human score: ${humanScore}\nComputer score: ${computerScore}`
+        //Add to list of score outputs
     );
-
-    if(humanScore > computerScore) {
-        console.log("The human wins the match!");
-    }
-    else {
-        console.log("The computer wins the match");
-    }
 }
 
+//Add play game function to all buttons
  let buttons = document.querySelectorAll('button');
  for(let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener('click', playGame);
