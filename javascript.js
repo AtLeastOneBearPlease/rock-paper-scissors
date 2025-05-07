@@ -89,10 +89,15 @@ function playGame(event)
         computerScore++;
     }
 
-    console.log(
-        `Human score: ${humanScore}\nComputer score: ${computerScore}`
-        //Add to list of score outputs
-    );
+    setScores();
+}
+
+function setScores(){
+    let humanScoreElement = document.querySelector('#human-score');
+    let computerScoreElement = document.querySelector('#computer-score');
+
+    humanScoreElement.innerText = humanScore;
+    computerScoreElement.innerText = computerScore;
 }
 
 //Add play game function to all buttons
