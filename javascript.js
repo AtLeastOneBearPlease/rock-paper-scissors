@@ -22,7 +22,7 @@ function playGame(event)
             logMatchResult('computer');
         }
 
-        setScores();
+        displayScores();
 
         if(humanScore === 5){
             gameWon = true;
@@ -122,7 +122,7 @@ function playRound(humanChoice, computerChoice){
 }
 
 
-function setScores(){
+function displayScores(){
     let humanScoreElement = document.querySelector('#human-score');
     let computerScoreElement = document.querySelector('#computer-score');
 
