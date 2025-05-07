@@ -1,7 +1,10 @@
 * {
-    margin: 0px;
     padding: 0px;
     font-family: 'roboto', sans-serif;
     box-sizing: border-box;
 }
 
+.winner {
+    font-size: 24px;
+    font-weight: bold;
+}

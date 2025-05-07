@@ -11,15 +11,15 @@ function playGame(event)
         let winner = playRound(humanSelection, computerSelection);
 
         if(winner === undefined){
-            //log tie
+            logMatchResult('tie');
         } 
         else if(winner === true){
             humanScore++;
-            //log human win
+            logMatchResult('human');
         } 
         else if(winner === false){
             computerScore++;
-            //log computer win
+            logMatchResult('computer');
         }
 
         setScores();
@@ -44,7 +44,7 @@ function logMatchResult(result){
     else if(result === 'computer'){
         li.innerText = "The Computer wins - " + scoreString;
     }
-    else {
+    else{
         li.innerText = "There was a tie - " + scoreString;
     }
 
