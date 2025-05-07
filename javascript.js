@@ -97,5 +97,7 @@ function playGame(event)
     }
 }
 
- let button = document.querySelector('button');
- button.addEventListener('click', playGame);
+ let buttons = document.querySelectorAll('button');
+ for(let i = 0; i < buttons.length; i++){
+    buttons[i].addEventListener('click', playGame);
+ }
