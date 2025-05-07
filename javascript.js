@@ -26,10 +26,10 @@ function playGame(event)
 
         if(humanScore === 5){
             gameWon = true;
-            //display human win
+            logMatchWinner('human');
         } else if(computerScore === 5){
             gameWon = true;
-            //display computer win
+            logMatchWinner('computer');
         }
     }
 }
@@ -50,6 +50,18 @@ function logMatchResult(result){
 
     let ul = document.querySelector('ul');
     ul.appendChild(li);
+}
+
+function logMatchWinner(winner){
+    let displayWinner = document.querySelector('#winner');
+    displayWinner.style.visibility = 'visible';
+
+    if(winner === 'human'){
+        displayWinner.innerText = "The Human has Won!";
+    }
+    else {
+        displayWinner.innerText = "The Computer has Won!";
+    }
 }
 
 function getComputerChoice(){

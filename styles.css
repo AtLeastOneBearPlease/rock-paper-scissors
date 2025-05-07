@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 
-.winner {
+#winner {
+    visibility: hidden;
     font-size: 24px;
     font-weight: bold;
 }
