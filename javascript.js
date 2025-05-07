@@ -1,3 +1,57 @@
+let humanScore = 0;
+let computerScore = 0;
+let gameWon = false;
+
+function playGame(event)
+{
+    if(!gameWon){
+        const humanSelection = event.target.innerText;
+        const computerSelection = getComputerChoice();
+
+        let winner = playRound(humanSelection, computerSelection);
+
+        if(winner === undefined){
+            //log tie
+        } 
+        else if(winner === true){
+            humanScore++;
+            //log human win
+        } 
+        else if(winner === false){
+            computerScore++;
+            //log computer win
+        }
+
+        setScores();
+
+        if(humanScore === 5){
+            gameWon = true;
+            //display human win
+        } else if(computerScore === 5){
+            gameWon = true;
+            //display computer win
+        }
+    }
+}
+
+function logMatchResult(result){
+    let li = document.createElement('li');
+    let scoreString = `Human Score: ${humanScore} | Computer Score: ${computerScore}`;
+    
+    if(result === 'human'){
+        li.innerText = "The Human wins - " + scoreString;
+    }
+    else if(result === 'computer'){
+        li.innerText = "The Computer wins - " + scoreString;
+    }
+    else {
+        li.innerText = "There was a tie - " + scoreString;
+    }
+
+    let ul = document.querySelector('ul');
+    ul.appendChild(li);
+}
+
 function getComputerChoice(){
     let choice = Math.floor( (Math.random() * 3) );
 
@@ -13,18 +67,6 @@ function getComputerChoice(){
     else {
         return "ERROR";
     }
-}
-
-function humanWin(){
-    console.log("Human win");
-}
-
-function computerWin(){
-    console.log("Computer win");
-}
-
-function tie(){
-    console.log("Tie");
 }
 
 function playRound(humanChoice, computerChoice){
@@ -67,41 +109,6 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-let humanScore = 0;
-let computerScore = 0;
-let gameWon = false;
-
-function playGame(event)
-{
-    if(!gameWon){
-        const humanSelection = event.target.innerText;
-        const computerSelection = getComputerChoice();
-
-        let winner = playRound(humanSelection, computerSelection);
-
-        if(winner === undefined){
-            console.log("Tie");
-        } 
-        else if(winner === true){
-            console.log("The human wins the match!");
-            humanScore++;
-        } 
-        else if(winner === false){
-            console.log("The computer wins the match");
-            computerScore++;
-        }
-
-        setScores();
-
-        if(humanScore === 5){
-            gameWon = true;
-            //display human win
-        } else if(computerScore === 5){
-            gameWon = true;
-            //display computer win
-        }
-    }
-}
 
 function setScores(){
     let humanScoreElement = document.querySelector('#human-score');
