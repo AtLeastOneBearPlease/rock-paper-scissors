@@ -20,6 +20,10 @@ function humanWin(){
 }
 
 function computerWin(){
+
+}
+
+function tie(){
     
 }
 
@@ -37,11 +41,11 @@ function playRound(humanChoice, computerChoice){
     else if(humanChoice === "ROCK") {
         switch(computerChoice) {
             case "SCISSORS":
-                console.log(humanWin);
+                humanWin();
                 return true;
                 break;
             case "PAPER":
-                console.log(computerWin);
+                computerWin();
                 return false;
                 break;
         }
@@ -49,11 +53,11 @@ function playRound(humanChoice, computerChoice){
     else if(humanChoice === "PAPER") {
         switch(computerChoice) {
             case "ROCK":
-                console.log(humanWin);
+                humanWin();
                 return true;
                 break;
             case "SCISSORS":
-                console.log(computerWin);
+                computerWin();
                 return false;
                 break;
         }
@@ -61,11 +65,11 @@ function playRound(humanChoice, computerChoice){
     else if(humanChoice === "SCISSORS") {
         switch(computerChoice) {
             case "PAPER":
-                console.log(humanWin);
+                humanWin();
                 return true;
                 break;
             case "ROCK":
-                console.log(computerWin);
+                computerWin();
                 return false;
                 break;
         }
@@ -98,9 +102,3 @@ function playGame(event)
 
  let button = document.querySelector('button');
  button.addEventListener(playGame);
-
-// let buttons = document.querySelectorAll('button');
-
-// for(let i = 0; i < buttons.length; i++){
-//     buttons[i].addEventListener(playGame);
-// }
